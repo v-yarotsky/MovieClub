@@ -41,7 +41,7 @@ class MovieClub.Views.ProposedEvents extends Backbone.View
 
   render: ->
     events = @collection.models
-    $(@el).append(new MovieClub.Views.ProposedEvent(model: event).render().el) for event in events
+    @$el.append(new MovieClub.Views.ProposedEvent(model: event).render().el) for event in events
     @
 
 class MovieClub.Views.ProposedEvent extends Backbone.View
@@ -56,7 +56,7 @@ class MovieClub.Views.ProposedEvent extends Backbone.View
     @model.bind("change", @render, @)
 
   render: ->
-    $(@el).html(@template(@model.toJSON()))
+    @$el.html(@template(@model.attributes))
     @
 
   interested: ->
