@@ -1,0 +1,11 @@
+<a href="#events/new" class="event-propose">Propose an event!</a>
+<section id="event-form">
+  <form action="#event-new">
+    <p>
+      <label for="event[title]">Title</label>
+      <input type="text" name="event[title]"></label>
+    </p>
+  </form>
+  <a href="#" class="event-new-cancel">Cancel</a>
+</section
+

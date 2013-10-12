@@ -1,0 +1,11 @@
+<h2 class="event-title"><%= event.title %></h1>
+<p class="event-description"><%= event.description %></p>
+<a href="https://www.youtube.com/watch?v=p_U7Y6txWn8"><img src="https://img.youtube.com/vi/p_U7Y6txWn8/0.jpg" alt="Trailer"></img></a>
+<p class="event-rate"><%= event.rate %></p>
+<a href="#interested" class="event-interested" data-eventId="<%= event.id %>">I'm interested!</a>
+
+<script type="text/javascript">
+  $(".event-interested").click(function() {
+      $.post("<%= interested_in_event_path(event) %>");
+  });
+</script>

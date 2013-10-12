@@ -1,0 +1,17 @@
+<script type="text/javascript">
+  $(function() {
+    Backbone.$ = $;
+    MovieClub.app = new MovieClub.Router();
+    MovieClub.app.proposedEvents.reset(<%= raw @events.to_json %>);
+    Backbone.history.start();
+  });
+</script>
+
+<section id="content">
+<h1>Hot upcoming events!</h1>
+<section id="event-new">
+</section>
+<section id="events-proposed">
+</section>
+</section>
+
