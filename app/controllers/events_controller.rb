@@ -1,25 +1,23 @@
 class EventsController < ApplicationController
+  respond_to :html, :json
+
   def index
     @events = Event.top_rated_upcoming
   end
 
   def show
     @event = Event.find(params[:id])
+    respond_with(@event)
   end
 
   def new
     @event = Event.new
+    respond_with(@event)
   end
 
   def create
     @event = Event.create(params[:event])
-    if @event
-      flash.now = "Event successfully created"
-      redirect_to event_url(@event)
-    else
-      flash.now = "There were errors creating event"
-      render :new
-    end
+    respond_with(@event)
   end
 
   def edit
@@ -27,16 +25,13 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    if @event.update_attributes(params[:event].permit(:title, :description, :trailer_url, :rate))
-      render :json => { success: true }
-    else
-      render :json => { success: false, errors: @event.errors }
-    end
+    @event.update_attributes(params[:event].permit(:title, :description, :trailer_url, :rate))
+    respond_with(@event)
   end
 
   def interested
     @event = Event.find(params[:id])
     @event.interested!
-    render :json => { success: true }
+    respond_with(@event)
   end
 end

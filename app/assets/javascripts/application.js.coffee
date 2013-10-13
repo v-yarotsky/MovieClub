@@ -23,15 +23,7 @@ window.MovieClub = new (Backbone.View.extend
   Models: {}
   Collections: {}
   Views: {}
-
-  Router: new (Backbone.Router.extend
-    routes:
-      "": "index"
-
-    index: ->
-      $('#event-new').html(MovieClub.newEventView.render().el)
-      $('#events-proposed').html(MovieClub.eventsView.render().el)
-  )()
+  Routers: {}
 
   template: JST["templates/application"]
 
@@ -40,10 +32,17 @@ window.MovieClub = new (Backbone.View.extend
     @
 
   start: (bootstrap) ->
+    @router = new MovieClub.Routers.Events();
     @proposedEvents = new MovieClub.Collections.ProposedEvents(bootstrap.proposedEvents)
-    @newEventView = new MovieClub.Views.ProposeEventForm()
-    @eventsView = new MovieClub.Views.ProposedEvents(collection: MovieClub.proposedEvents)
     Backbone.history.start()
 )()
 
+class MovieClub.Routers.Events extends Backbone.Router
+  routes:
+    "": "index"
 
+  index: ->
+    @newEventView = new MovieClub.Views.ProposeEventForm()
+    @eventsView = new MovieClub.Views.ProposedEvents(collection: MovieClub.proposedEvents)
+    $('#event-new').html(@newEventView.render().el)
+    $('#events-proposed').html(@eventsView.render().el)
