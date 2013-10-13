@@ -2,11 +2,22 @@
 <html>
 <head>
   <title>MovieClub</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js" %>
   <%= javascript_include_tag "http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js" %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+  <script type="text/javascript">
+    $(function() {
+      var bootstrap = {
+        proposedEvents: <%= raw @events.to_json %>
+      };
+      MovieClub.setElement(document.body);
+      MovieClub.render();
+      MovieClub.start(bootstrap);
+    });
+  </script>
 </head>
 <body>
 

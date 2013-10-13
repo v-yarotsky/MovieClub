@@ -16,22 +16,33 @@
 #= require_self
 #= require_tree .
 
-window.MovieClub =
+Backbone.$ = $
+
+window.MovieClub = new (Backbone.View.extend
   Models: {}
   Collections: {}
   Views: {}
-  Controllers: {}
 
-class MovieClub.Router extends Backbone.Router
-  routes:
-    "": "index"
+  Router: new (Backbone.Router.extend
+    routes:
+      "": "index"
 
-  initialize: ->
-    @proposedEvents = new MovieClub.Collections.ProposedEvents()
+    index: ->
+      $('#event-new').html(MovieClub.newEventView.render().el)
+      $('#events-proposed').html(MovieClub.eventsView.render().el)
+  )()
+
+  template: JST["templates/application"]
+
+  render: ->
+    @$el.html(@template())
+    @
+
+  start: (bootstrap) ->
+    @proposedEvents = new MovieClub.Collections.ProposedEvents(bootstrap.proposedEvents)
     @newEventView = new MovieClub.Views.ProposeEventForm()
-    @eventsView = new MovieClub.Views.ProposedEvents({ collection: @proposedEvents })
+    @eventsView = new MovieClub.Views.ProposedEvents(collection: MovieClub.proposedEvents)
+    Backbone.history.start()
+)()
 
-  index: ->
-    $('#event-new').html(@newEventView.render().el)
-    $('#events-proposed').html(@eventsView.render().el)
-    
+
