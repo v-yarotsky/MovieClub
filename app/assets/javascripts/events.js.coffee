@@ -1,10 +1,11 @@
 class MovieClub.Models.Event extends Backbone.Model
+  urlRoot: "/events"
+
   increaseInterested: ->
     if @interested
       alert "yeah, I know"
     else
-      @set("rate", @get("rate") + 1)
-      @save()
+      @save(rate: @get("rate") + 1)
       @interested = true
 
 class MovieClub.Collections.ProposedEvents extends Backbone.Collection
@@ -27,13 +28,13 @@ class MovieClub.Views.ProposeEventForm extends Backbone.View
     @$el.find("a.event-propose").toggle(!showForm)   
     @$el.find("#event-form").toggle(showForm)      
 
-  showForm: ->
+  showForm: (e) ->
+    e.preventDefault()
     @toggleForm(true);
-    false
 
-  cancelProposeEvent: ->
+  cancelProposeEvent: (e) ->
+    e.preventDefault()
     @toggleForm(false)
-    false
 
 class MovieClub.Views.ProposedEvents extends Backbone.View
   tagName: "ul"
@@ -53,13 +54,13 @@ class MovieClub.Views.ProposedEvent extends Backbone.View
     "click .event-interested": "interested"
 
   initialize: ->
-    @model.bind("change", @render, @)
+    @listenTo(@model, "change", @render, @)
 
   render: ->
     @$el.html(@template(@model.attributes))
     @
 
-  interested: ->
+  interested: (e) ->
+    e.preventDefault()
     @model.increaseInterested()
-    false
 

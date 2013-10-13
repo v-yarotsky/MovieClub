@@ -3,9 +3,20 @@
   <form action="#event-new">
     <p>
       <label for="event[title]">Title</label>
-      <input type="text" name="event[title]"></label>
+      <input type="text" name="event[title]"></input>
+    </p>
+    <p>
+      <label for="event[description]">Description</label>
+      <textarea name="event[title]"></textarea>
+    </p>
+    <p>
+      <label for="event[trailer_url]">Trailer</label>
+      <input type="text" name="event[trailer_url]"></input>
+    </p>
+    <p class="actions">
+      <button type="submit">Submit</button>
+      <a href="#" class="event-new-cancel">Cancel</a>
     </p>
   </form>
-  <a href="#" class="event-new-cancel">Cancel</a>
-</section
+</section>
 
