@@ -2,5 +2,5 @@
 <td><%= @title %></td>
 <td>
   <%= @rate %>
-  <a href="#interested" class="btn btn-xs btn-success">+1</a>
+  <a href="#" class="vote-event btn btn-xs btn-success">+1</a>
 </td>
