@@ -1,22 +1,23 @@
-<a href="#events/new" class="event-propose">Propose an event!</a>
-<section id="event-form">
-  <form action="#event-new">
-    <p>
-      <label for="event[title]">Title</label>
-      <input type="text" name="event[title]"></input>
-    </p>
-    <p>
-      <label for="event[description]">Description</label>
-      <textarea name="event[title]"></textarea>
-    </p>
-    <p>
-      <label for="event[trailer_url]">Trailer</label>
-      <input type="text" name="event[trailer_url]"></input>
-    </p>
-    <p class="actions">
-      <button type="submit">Submit</button>
-      <a href="#" class="event-new-cancel">Cancel</a>
-    </p>
+<a href="#" class="event-propose btn btn-primary">Propose an event!</a>
+
+<div id="event-form">
+  <form action="#event-new" role="form">
+    <div class="form-group">
+      <label for="event[title]" class="form-label">Title</label>
+      <input type="text" name="event[title]" placeholder="Enter text ..." class="form-control"></input>
+    </div>
+    <div class="form-group">
+      <label for="event[description]" class="form-label">Description</label>
+      <textarea name="event[title]" placeholder="Enter text ..." class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="event[trailer_url]" class="form-label">Trailer</label>
+      <input type="text" name="event[trailer_url]" placeholder="Enter URL" class="form-control"></input>
+    </div>
+    <div class="actions">
+      <button type="submit" class="btn btn-success">Submit</button>
+      <a href="#" class="event-new-cancel btn btn-danger">Cancel</a>
+    </div>
   </form>
-</section>
+</div>
 

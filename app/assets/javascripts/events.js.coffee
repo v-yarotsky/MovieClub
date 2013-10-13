@@ -37,7 +37,7 @@ class MovieClub.Views.ProposeEventForm extends Backbone.View
     @toggleForm(false)
 
 class MovieClub.Views.ProposedEvents extends Backbone.View
-  tagName: "ul"
+  tagName: "tbody"
   class: "events-proposed"
 
   render: ->
@@ -46,7 +46,7 @@ class MovieClub.Views.ProposedEvents extends Backbone.View
     @
 
 class MovieClub.Views.ProposedEvent extends Backbone.View
-  tagName: "li"
+  tagName: "tr"
   class: "event-proposed"
   template: JST["templates/events/proposed_event"]
 

@@ -45,4 +45,4 @@ class MovieClub.Routers.Events extends Backbone.Router
     @newEventView = new MovieClub.Views.ProposeEventForm()
     @eventsView = new MovieClub.Views.ProposedEvents(collection: MovieClub.proposedEvents)
     $('#event-new').html(@newEventView.render().el)
-    $('#events-proposed').html(@eventsView.render().el)
+    $('#events-proposed').find('table').append(@eventsView.render().el)
