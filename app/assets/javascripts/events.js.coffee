@@ -1,5 +1,5 @@
 class MovieClub.Models.Event extends Backbone.Model
-  urlRoot: "/events"
+  urlRoot: Routes.events_path
 
   increaseInterested: ->
     if @interested
@@ -10,7 +10,6 @@ class MovieClub.Models.Event extends Backbone.Model
 
 class MovieClub.Collections.ProposedEvents extends Backbone.Collection
   model: MovieClub.Models.Event
-  urlRoot: "/events"
 
 class MovieClub.Views.ProposeEventForm extends Backbone.View
   template: JST["templates/events/propose_event_form"]

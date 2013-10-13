@@ -29,5 +29,6 @@ module MovieClub
     config.assets.enabled = false
 
     config.assets.paths << "#{Rails.root}/vendor/assets/fonts"
+    config.assets.initialize_on_precompile = true
   end
 end
