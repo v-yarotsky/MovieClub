@@ -3,6 +3,7 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.top_rated_upcoming
+    respond_with(@events)
   end
 
   def show
@@ -10,17 +11,9 @@ class EventsController < ApplicationController
     respond_with(@event)
   end
 
-  def new
-    @event = Event.new
-    respond_with(@event)
-  end
-
   def create
     @event = Event.create(params[:event])
     respond_with(@event)
-  end
-
-  def edit
   end
 
   def update
