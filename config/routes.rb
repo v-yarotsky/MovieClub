@@ -1,9 +1,19 @@
 MovieClub::Application.routes.draw do
-  resources :events do
-    member do
-      post :interested, as: :interested_in
+  namespace :api do
+    devise_scope :user do
+      resource :session, only: [:create, :destroy]
+    end
+
+    resources :events do
+      member do
+        post :interested, as: :interested_in
+      end
     end
   end
+
+  Devise.add_mapping(:user, {})
+
+  resources :events, only: :index
 
   root "events#index"
 

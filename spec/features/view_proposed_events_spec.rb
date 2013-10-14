@@ -14,6 +14,7 @@ feature "View proposed events" do
   end
 
   scenario "View list of proposed events" do
+    login_as test_user
     visit "/"
     expect(page).to have_text("Queen of the Damned")
     expect(page).to have_text("The Bucket List")

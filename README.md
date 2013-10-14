@@ -14,6 +14,7 @@ Features:
 
   * Admin:
     - Schedule next event from the list of top-rated proposed event
+    - Gotta invite users by mail
 
 Getting started
 ===============

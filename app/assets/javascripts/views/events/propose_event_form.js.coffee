@@ -1,4 +1,4 @@
-class MovieClub.Views.ProposeEventForm extends Backbone.View
+class MovieClub.Views.ProposeEventForm extends MovieClub.BaseView
   id: "propose-event-form-container"
   template: JST["templates/events/propose_event_form"]
 
@@ -7,14 +7,17 @@ class MovieClub.Views.ProposeEventForm extends Backbone.View
     "submit form": "proposeEventHandler"
 
   render: ->
+    @log("render propose event form")
     @$el.html(@template())
     @
 
   cancelFormHandler: (e) ->
+    @log("propose event form cancel")
     e.preventDefault()
     @trigger("cancel")
 
   proposeEventHandler: (e) ->
+    @log("propose event form proposeEventHandler")
     e.preventDefault()
 
     proposedEvent =
@@ -40,5 +43,6 @@ class MovieClub.Views.ProposeEventForm extends Backbone.View
           @$el.prepend("<div class='js-error-remove alert alert-danger'>Smth is a wrong :(</div>")
 
   removeErrors: ->
+    @log("propose event form removeErrors")
     @$el.find('.js-error-remove').remove()
     @$el.find('.js-error-class-remove').removeClass('has-error')

@@ -9,6 +9,7 @@ feature "View details of the proposed event" do
   end
 
   scenario "By clicking on proposed events list item" do
+    login_as test_user
     visit "/"
 
     within "#proposed-events-list" do
