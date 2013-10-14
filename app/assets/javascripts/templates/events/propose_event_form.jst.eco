@@ -1,14 +1,14 @@
 <a href="#" class="event-propose btn btn-primary">Propose an event!</a>
 
-<div id="event-form">
-  <form action="#event-new" role="form">
+<div id="propose-event-form-container">
+  <form id="propose-event-form" role="form">
     <div class="form-group">
       <label for="event[title]" class="form-label">Title</label>
       <input type="text" name="event[title]" placeholder="Enter text ..." class="form-control"></input>
     </div>
     <div class="form-group">
       <label for="event[description]" class="form-label">Description</label>
-      <textarea name="event[title]" placeholder="Enter text ..." class="form-control"></textarea>
+      <textarea name="event[description]" placeholder="Enter text ..." class="form-control"></textarea>
     </div>
     <div class="form-group">
       <label for="event[trailer_url]" class="form-label">Trailer</label>

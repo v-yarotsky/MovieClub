@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.create(params[:event])
+    @event = Event.create(params[:event].permit(:title, :description, :trailer_url))
     respond_with(@event)
   end
 
