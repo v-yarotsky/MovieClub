@@ -36,8 +36,8 @@ window.MovieClub = new (Backbone.View.extend
     @
 
   start: (bootstrap) ->
+    @bootstrap = bootstrap
     @router = new MovieClub.Routers.Events();
-    @proposedEvents = new MovieClub.Collections.ProposedEvents(bootstrap.proposedEvents)
     Backbone.history.start()
 )()
 
@@ -46,7 +46,6 @@ class MovieClub.Routers.Events extends Backbone.Router
     "": "index"
 
   index: ->
-    @newEventView = new MovieClub.Views.ProposeEventForm()
-    @eventsView = new MovieClub.Views.ProposedEvents(collection: MovieClub.proposedEvents)
-    $('#event-new').html(@newEventView.render().el)
-    $('#events-proposed').find('table').append(@eventsView.render().el)
+    @eventsLayout = new MovieClub.Views.EventsLayout(MovieClub.bootstrap)
+    $("#content").html(@eventsLayout.render().el)
+
