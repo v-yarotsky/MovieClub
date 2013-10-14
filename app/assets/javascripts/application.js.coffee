@@ -16,6 +16,9 @@
 #= require js-routes
 #= require_tree ./templates
 #= require_self
+#= require_tree ./models
+#= require_tree ./collections
+#= require_tree ./views
 #= require_tree .
 
 Backbone.$ = $
@@ -26,7 +29,7 @@ window.MovieClub = new (Backbone.View.extend
   Views: {}
   Routers: {}
 
-  template: JST["templates/application"]
+  template: JST["templates/layouts/application"]
 
   render: ->
     @$el.html(@template())
