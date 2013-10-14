@@ -1,7 +1,28 @@
-<section id="content">
-<h1>Hot upcoming events!</h1>
-<section id="event-new">
-</section>
-<section id="events-proposed">
-</section>
-</section>
+<div id="content" class="container">
+  <div class="header">
+    <!-- Navigation
+    <ul class="nav nav-pills pull-right">
+    </ul>
+    -->
+    <h1 class="text-muted">Movie Club</h1>
+  </div>
+
+  <div class="jumbotron">
+    <h2>Actual Event</h2>
+  </div>
+
+  <div id="event-new" class="row event-section">
+  </div>
+
+  <div id="events-proposed" class="row event-section">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>

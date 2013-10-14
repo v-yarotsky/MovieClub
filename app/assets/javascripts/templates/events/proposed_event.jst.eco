@@ -1,6 +1,6 @@
-<h2 class="event-title"><%= @title %></h1>
-<p class="event-description"><%= @description %></p>
-<a href="https://www.youtube.com/watch?v=p_U7Y6txWn8"><img src="https://img.youtube.com/vi/p_U7Y6txWn8/0.jpg" alt="Trailer"></img></a>
-<p class="event-rate"><%= @rate %></p>
-<a href="#interested" class="event-interested" data-eventId="<%= @id %>">I'm interested!</a>
-
+<td>1</td>
+<td><%= @title %></td>
+<td>
+  <%= @rate %>
+  <a href="#" class="vote-event btn btn-xs btn-success">+1</a>
+</td>
