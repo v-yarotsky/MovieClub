@@ -1,0 +1,19 @@
+<div class="jumbotron">
+  <h2>Actual Event</h2>
+</div>
+
+<div id="event-new" class="row event-section">
+</div>
+
+<div id="events-proposed" class="row event-section">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+
