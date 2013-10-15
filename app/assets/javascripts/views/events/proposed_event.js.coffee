@@ -1,6 +1,6 @@
 class MovieClub.Views.ProposedEvent extends Backbone.View
   tagName: "tr"
-  class: "event-proposed"
+  className: "event-proposed"
   template: JST["templates/events/proposed_event"]
 
   events:
@@ -16,4 +16,3 @@ class MovieClub.Views.ProposedEvent extends Backbone.View
   voteEventHandler: (e) ->
     e.preventDefault()
     @model.increaseInterested()
-

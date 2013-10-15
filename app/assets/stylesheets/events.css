@@ -2,3 +2,12 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+.btn-left {
+    float: left;
+}
+
+.dialog-title {
+    text-transform: uppercase;
+    font-weight: bold;
+}

@@ -25,7 +25,7 @@ class MovieClub.Views.ProposeEventForm extends Backbone.View
 
     proposedEvent = new MovieClub.Models.Event({
       title: $form.find("input[name='event[title]']").val(),
-      description: $form.find("input[name='event[description]']").val(),
+      description: $form.find("textarea[name='event[description]']").val(),
       trailer_url: $form.find("input[name='event[trailer_url]']").val()
     })
 

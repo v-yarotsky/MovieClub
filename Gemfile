@@ -16,6 +16,10 @@ group :doc do
   gem 'sdoc', '~> 0.3', require: false
 end
 
+group :development do
+  gem 'pry'
+end
+
 group :test do
   gem 'rspec-rails',      '~> 2.14'
   gem 'capybara',         '~> 2.1'

@@ -1,6 +1,6 @@
 class MovieClub.Views.ProposedEvents extends Backbone.View
   tagName: "tbody"
-  class: "events-proposed"
+  className: "events-proposed"
 
   initialize: ->
     @collection.on('add', this.render, this)
@@ -10,4 +10,3 @@ class MovieClub.Views.ProposedEvents extends Backbone.View
     @$el.html('')
     @$el.append(new MovieClub.Views.ProposedEvent(model: event).render().el) for event in @collection.models
     @
-
