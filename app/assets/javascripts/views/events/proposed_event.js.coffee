@@ -6,13 +6,13 @@ class MovieClub.Views.ProposedEvent extends Backbone.View
   events:
     "click .vote-event": "voteEventHandler"
 
-  initialize: ->
+  initialize: () ->
     @listenTo(@model, "change", @render, @)
 
-  render: ->
+  render: () ->
     @$el.html(@template(@model.attributes))
     @
 
-  voteEventHandler: (e) ->
+  voteEventHandler: (e) =>
     e.preventDefault()
     @model.increaseInterested()

@@ -2,16 +2,16 @@
 
 <div id="propose-event-form-container">
   <form id="propose-event-form" role="form">
-    <div class="form-group">
-      <label for="event[title]" class="form-label">Title</label>
+    <div class="form-event-title form-group">
+      <label for="event[title]" class="control-label">Title</label>
       <input type="text" name="event[title]" placeholder="Enter text ..." class="form-control"></input>
     </div>
-    <div class="form-group">
-      <label for="event[description]" class="form-label">Description</label>
+    <div class="form-event-description form-group">
+      <label for="event[description]" class="control-label">Description</label>
       <textarea name="event[description]" placeholder="Enter text ..." class="form-control"></textarea>
     </div>
-    <div class="form-group">
-      <label for="event[trailer_url]" class="form-label">Trailer</label>
+    <div class="form-event-trailer_url form-group">
+      <label for="event[trailer_url]" class="control-label">Trailer</label>
       <input type="text" name="event[trailer_url]" placeholder="Enter URL" class="form-control"></input>
     </div>
     <div class="actions">
