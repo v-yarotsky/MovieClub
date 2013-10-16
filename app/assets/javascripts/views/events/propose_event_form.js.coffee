@@ -3,10 +3,10 @@ class MovieClub.Views.ProposeEventForm extends Backbone.View
 
   events:
     "click .event-propose":    "showFormHandler"
-    "click .event-new-cancel": "cancelProposeEventHandler"
-    "submit #propose-event-form": "createProposeEventHandler"
+    "click .event-new-cancel": "cancelFormHandler"
+    "submit #propose-event-form": "proposeEventHandler"
 
-  render: ->
+  render: () ->
     @$el.html(@template())
     @toggleForm(false)
     @
@@ -15,24 +15,35 @@ class MovieClub.Views.ProposeEventForm extends Backbone.View
     e.preventDefault()
     @toggleForm(true);
 
-  cancelProposeEventHandler: (e) ->
+  cancelFormHandler: (e) ->
     e.preventDefault()
     @toggleForm(false)
 
-  createProposeEventHandler: (e) ->
+  proposeEventHandler: (e) ->
     e.preventDefault()
     $form = @$el.find('#propose-event-form')
 
-    proposedEvent = new MovieClub.Models.Event({
+    proposeEventSuccessHandler = (model, response, options) ->
+      @toggleForm(false)
+
+    proposeEventErrorHandler = (model, xhr, options) ->
+      if xhr.responseJSON and 'errors' of xhr.responseJSON
+        for field, error of xhr.responseJSON['errors']
+          $field = $form.find(".form-event-#{field}")
+          $field.addClass("has-error")
+          $field.append("<p class='text-danger'>#{error}</p>")
+
+    proposedEvent = {
       title: $form.find("input[name='event[title]']").val(),
       description: $form.find("textarea[name='event[description]']").val(),
       trailer_url: $form.find("input[name='event[trailer_url]']").val()
+    }
+
+    @collection.create(proposedEvent, {
+      wait: true,
+      success: proposeEventSuccessHandler,
+      error: proposeEventErrorHandler
     })
-
-    proposedEvent.save()
-    @collection.add(proposedEvent)
-
-    @toggleForm(false)
 
   toggleForm: (showForm) ->
     @$el.find("a.event-propose").toggle(!showForm)
