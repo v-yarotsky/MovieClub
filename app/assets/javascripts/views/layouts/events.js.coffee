@@ -9,7 +9,7 @@ class MovieClub.Views.EventsLayout extends Backbone.View
 
   render: () ->
     @$el.html(@template())
-    @newEventView ?= new MovieClub.Views.ProposeEventForm(collection: @proposedEvents)
+    @newEventView ?= new MovieClub.Views.ProposeEvent(collection: @proposedEvents)
     @eventsView ?= new MovieClub.Views.ProposedEvents(collection: @proposedEvents)
     @$('#event-new').html(@newEventView.render().el)
     @$('#events-proposed table').append(@eventsView.render().el)
