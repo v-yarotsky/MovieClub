@@ -4,15 +4,15 @@ class MovieClub.Views.ProposedEventDialog extends Backbone.View
   template: JST["templates/events/proposed_event_dialog"]
 
   events:
-    "click .js-vote-proposed-event": "voteEventHandler"
+    "click .js-vote-proposed-event": "voteForEventHandler"
 
-  render: () ->
+  render: ->
     @$el.html(@template(@model.attributes))
     @
 
-  open: () ->
+  open: ->
     @$el.modal("show")
 
-  voteEventHandler: (e) ->
+  voteForEventHandler: (e) ->
     e.preventDefault()
     @model.increaseInterested()
