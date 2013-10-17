@@ -1,50 +1,37 @@
 class MovieClub.Views.ProposeEventForm extends Backbone.View
+  id: "propose-event-form-container"
   template: JST["templates/events/propose_event_form"]
 
   events:
-    "click .event-propose":    "showFormHandler"
     "click .event-new-cancel": "cancelFormHandler"
     "submit #propose-event-form": "proposeEventHandler"
 
-  render: () ->
+  render: ->
     @$el.html(@template())
-    @toggleForm(false)
     @
-
-  showFormHandler: (e) ->
-    e.preventDefault()
-    @toggleForm(true);
 
   cancelFormHandler: (e) ->
     e.preventDefault()
-    @toggleForm(false)
+    @trigger("cancel")
 
   proposeEventHandler: (e) ->
     e.preventDefault()
-    $form = @$el.find('#propose-event-form')
 
-    proposeEventSuccessHandler = (model, response, options) ->
-      @toggleForm(false)
+    proposedEvent =
+      title:       @$el.find("input[name='event[title]']").val()
+      description: @$el.find("textarea[name='event[description]']").val()
+      trailer_url: @$el.find("input[name='event[trailer_url]']").val()
 
-    proposeEventErrorHandler = (model, xhr, options) ->
-      if xhr.responseJSON and 'errors' of xhr.responseJSON
-        for field, error of xhr.responseJSON['errors']
-          $field = $form.find(".form-event-#{field}")
-          $field.addClass("has-error")
-          $field.append("<p class='text-danger'>#{error}</p>")
+    @collection.create proposedEvent,
+      wait: true
 
-    proposedEvent = {
-      title: $form.find("input[name='event[title]']").val(),
-      description: $form.find("textarea[name='event[description]']").val(),
-      trailer_url: $form.find("input[name='event[trailer_url]']").val()
-    }
+      success: =>
+        @trigger("create")
 
-    @collection.create(proposedEvent, {
-      wait: true,
-      success: proposeEventSuccessHandler,
-      error: proposeEventErrorHandler
-    })
+      error: (model, xhr) =>
+        if xhr.responseJSON and 'errors' of xhr.responseJSON
+          for field, error of xhr.responseJSON['errors']
+            @$el.find(".form-event-#{field}").
+              addClass("has-error").
+              append("<p class='text-danger'>#{error}</p>")
 
-  toggleForm: (showForm) ->
-    @$el.find("a.event-propose").toggle(!showForm)
-    @$el.find("#propose-event-form-container").toggle(showForm)
