@@ -47,8 +47,11 @@ class MovieClub.Routers.Events extends Backbone.Router
     "events/:id": "show"
 
   index: ->
-    @eventsLayout = new MovieClub.Views.EventsLayout(MovieClub.bootstrap)
+    @eventsLayout ?= new MovieClub.Views.EventsLayout(MovieClub.bootstrap)
     $("#content").html(@eventsLayout.render().el)
+    @mainRendered = true
 
-  show: ->
+  show: (eventId) ->
+    @index() unless @mainRendered
+    @eventsLayout.showEvent(eventId)
 
