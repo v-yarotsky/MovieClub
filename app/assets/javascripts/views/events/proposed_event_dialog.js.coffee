@@ -1,6 +1,6 @@
 class MovieClub.Views.ProposedEventDialog extends Backbone.View
   tagName: "div"
-  className: "modal fade"
+  className: "modal fade proposed-event-details"
   template: JST["templates/events/proposed_event_dialog"]
 
   events:

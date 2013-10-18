@@ -3,8 +3,8 @@ class MovieClub.Views.ProposeEventForm extends Backbone.View
   template: JST["templates/events/propose_event_form"]
 
   events:
-    "click .event-new-cancel": "cancelFormHandler"
-    "submit #propose-event-form": "proposeEventHandler"
+    "click .js-proposed-event-new-cancel": "cancelFormHandler"
+    "submit form": "proposeEventHandler"
 
   render: ->
     @$el.html(@template())

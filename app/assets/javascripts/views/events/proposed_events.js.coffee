@@ -1,6 +1,6 @@
 class MovieClub.Views.ProposedEvents extends Backbone.View
   tagName: "tbody"
-  className: "events-proposed"
+  className: "proposed-events-list"
 
   initialize: ->
     @listenTo(@collection, "add", @renderEvent)

@@ -5,7 +5,7 @@ feature "Propose an event" do
     visit "/"
     click_on "Propose an event!"
 
-    within "#propose-event-form" do
+    within "#proposed-event-form" do
       fill_in "event[title]", with: "BaDaBoo"
       fill_in "event[description]", with: "Bar"
       click_on "Submit"

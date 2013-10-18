@@ -4,7 +4,7 @@ class MovieClub.Views.ProposedEvent extends Backbone.View
   template: JST["templates/events/proposed_event"]
 
   events:
-    "click .vote-event": "voteEventHandler"
+    "click .js-proposed-event-vote": "voteEventHandler"
 
   initialize: () ->
     @listenTo(@model, "change", @render, @)

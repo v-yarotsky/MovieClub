@@ -2,7 +2,7 @@ class MovieClub.Views.ProposeEvent extends Backbone.View
   template: JST["templates/events/propose_event"]
 
   events:
-    "click .event-propose": "showFormHandler"
+    "click .js-proposed-event-new": "showFormHandler"
 
   render: () ->
     @$el.html(@template())
@@ -10,7 +10,7 @@ class MovieClub.Views.ProposeEvent extends Backbone.View
 
   showFormHandler: (e) ->
     e.preventDefault()
-    @$el.find("a.event-propose").hide()
+    @$el.find("a.js-proposed-event-new").hide()
     @eventForm = new MovieClub.Views.ProposeEventForm(collection: @collection)
     @eventForm.on "create", @removeForm, @
     @eventForm.on "cancel", @removeForm, @
@@ -18,6 +18,6 @@ class MovieClub.Views.ProposeEvent extends Backbone.View
 
   removeForm: ->
     @eventForm.remove()
-    @$el.find("a.event-propose").show()
+    @$el.find("a.js-proposed-event-new").show()
 
 
