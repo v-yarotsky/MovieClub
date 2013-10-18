@@ -29,9 +29,16 @@ class MovieClub.Views.ProposeEventForm extends Backbone.View
         @trigger("create")
 
       error: (model, xhr) =>
+        @removeErrors()
+
         if xhr.responseJSON and 'errors' of xhr.responseJSON
           for field, error of xhr.responseJSON['errors']
             @$el.find(".form-event-#{field}").
-              addClass("has-error").
-              append("<p class='text-danger'>#{error}</p>")
+              addClass("js-error-class-remove has-error").
+              append("<p class='js-error-remove text-danger'>#{error}</p>")
+        else
+          @$el.prepend("<div class='js-error-remove alert alert-danger'>Smth is a wrong :(</div>")
 
+  removeErrors: ->
+    @$el.find('.js-error-remove').remove()
+    @$el.find('.js-error-class-remove').removeClass('has-error')
