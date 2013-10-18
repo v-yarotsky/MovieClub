@@ -11,7 +11,7 @@ feature "View details of the proposed event" do
   scenario "By clicking on proposed events list item" do
     visit "/"
 
-    within ".proposed-events-list" do
+    within "#proposed-events-list" do
       click_link "Queen of the Damned"
     end
 
