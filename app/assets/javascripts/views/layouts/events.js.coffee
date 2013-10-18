@@ -1,8 +1,8 @@
 class MovieClub.Views.EventsLayout extends Backbone.View
   template: JST["templates/layouts/events"]
 
-  initialize: (bootstrap) ->
-    @proposedEvents = new MovieClub.Collections.ProposedEvents(bootstrap.proposedEvents)
+  initialize: (options) ->
+    @proposedEvents = new MovieClub.Collections.ProposedEvents(options.bootstrap.proposedEvents)
 
   render: ->
     @$el.html(@template())

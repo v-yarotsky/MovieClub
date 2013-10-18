@@ -53,8 +53,7 @@ class MovieClub.Routers.Events extends Backbone.Router
     @renderLayout().showEvent(eventId)
 
   renderLayout: _.once(->
-    @eventsLayout = new MovieClub.Views.EventsLayout(MovieClub.bootstrap)
-    $("#content").html(@eventsLayout.render().el)
-    @eventsLayout
+    @eventsLayout = new MovieClub.Views.EventsLayout(el: $("#content"), bootstrap: MovieClub.bootstrap)
+    @eventsLayout.render()
   )
 
