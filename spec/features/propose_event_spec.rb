@@ -11,7 +11,7 @@ feature "Propose an event" do
       click_on "Submit"
     end
 
-    within "#events-proposed" do
+    within "#proposed-events-list" do
       expect(page).to have_text("BaDaBoo")
     end
 

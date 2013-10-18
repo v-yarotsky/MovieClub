@@ -2,10 +2,13 @@
   <h2>Actual Event</h2>
 </div>
 
-<div id="event-new" class="row event-section">
+<div id="proposed-event-new" class="row event-section">
 </div>
 
-<div id="events-proposed" class="row event-section">
+<div id="proposed-event-details">
+</div>
+
+<div id="proposed-events-list" class="row event-section">
   <table class="table table-striped">
     <thead>
       <tr>
@@ -16,3 +19,4 @@
     </thead>
   </table>
 </div>
+

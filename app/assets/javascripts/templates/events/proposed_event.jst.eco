@@ -1,6 +1,6 @@
 <td>1</td>
 <td>
-  <a href="#" class="js-proposed-event-show" data-proposed-event-id="<%= @id %>">
+  <a href="#events/<%= @id %>" class="js-proposed-event-show" data-proposed-event-id="<%= @id %>">
     <%= @title %>
   </a>
 </td>
