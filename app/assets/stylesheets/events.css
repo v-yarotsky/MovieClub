@@ -11,3 +11,8 @@
     text-transform: uppercase;
     font-weight: bold;
 }
+
+.promoted-event-text {
+    text-align: left;
+    font-size: 18px;
+}

@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131014151246) do
+ActiveRecord::Schema.define(version: 20131019004129) do
 
   create_table "events", force: true do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "rate",        default: 0
-    t.datetime "held_at"
+    t.integer  "rate",          default: 0
+    t.datetime "scheduled_for"
     t.string   "trailer_url"
     t.datetime "created_at"
     t.datetime "updated_at"
