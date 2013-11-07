@@ -4,7 +4,7 @@ module Api
     before_filter :authenticate_user!
 
     def index
-      @events = Event.top_rated_upcoming
+      @events = Event.top_proposed
       respond_with(:api, @events)
     end
 
@@ -27,6 +27,11 @@ module Api
     def interested
       @event = Event.find(params[:id])
       @event.interested!
+      respond_with(:api, @event)
+    end
+
+    def upcoming
+      @event = Event.upcoming
       respond_with(:api, @event)
     end
   end

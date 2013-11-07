@@ -8,6 +8,9 @@ MovieClub::Application.routes.draw do
       member do
         post :interested, as: :interested_in
       end
+      collection do
+        get :upcoming
+      end
     end
   end
 

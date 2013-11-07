@@ -2,8 +2,13 @@ class EventsController < ApplicationController
   respond_to :html
 
   def index
-    @events = user_signed_in? ? Event.top_rated_upcoming : []
-    respond_with(@events)
+    if user_signed_in?
+      @events = Event.top_proposed
+      @upcoming_event = Event.upcoming
+    else
+      @events = []
+      @upcoming_event = nil
+    end
   end
 end
 

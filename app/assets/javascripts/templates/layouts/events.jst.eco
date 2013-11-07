@@ -1,5 +1,4 @@
-<div class="jumbotron">
-  <h2>Actual Event</h2>
+<div id="upcoming-event">
 </div>
 
 <div id="proposed-event-new" class="row event-section">
