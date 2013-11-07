@@ -10,3 +10,8 @@ User.create!(
   password: "123456"
 )
 
+User.create!(
+  email: "ermak130990@rambler.ru",
+  password: "123456"
+)
+

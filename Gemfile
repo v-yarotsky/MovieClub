@@ -1,16 +1,16 @@
 source 'https://rubygems.org'
 
-gem 'rails',            '4.0.0'
+gem 'rails', '4.0.0'
 
-gem 'sqlite3',          '~> 1.3'
-gem 'coffee-rails',     '~> 4.0.0'
-gem 'sass-rails',       '~> 4.0.0.rc1'
-gem 'jquery-rails',     '~> 3.0'
-gem 'jbuilder',         '~> 1.2'
-gem 'therubyracer',     '~> 0.12'
-gem 'js-routes',        '~> 0.9'
-gem 'eco',              '~> 1.0'
-gem 'devise',           '~> 3.1.1'
+gem 'sqlite3', '~> 1.3'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 4.0.0.rc1'
+gem 'jquery-rails', '~> 3.0'
+gem 'jbuilder', '~> 1.2'
+gem 'therubyracer', '~> 0.12'
+gem 'js-routes', '~> 0.9'
+gem 'eco', '~> 1.0'
+gem 'devise', '~> 3.1.1'
 gem 'devise_invitable', '~> 1.3.0'
 
 group :doc do
@@ -20,14 +20,19 @@ end
 
 group :development do
   gem 'pry'
-  gem 'qunit-rails'
+  gem 'capistrano', '~> 3.0', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-unicorn', require: false
 end
 
 group :test do
-  gem 'rspec-rails',      '~> 2.14'
-  gem 'capybara',         '~> 2.1'
-  gem 'poltergeist',      '~> 1.4'
+  gem 'rspec-rails', '~> 2.14'
+  gem 'capybara', '~> 2.1'
+  gem 'poltergeist', '~> 1.4'
   gem 'database_cleaner', '~> 1.2'
-  gem 'qunit-rails'
 end
 
+group :development, :test do
+  gem 'qunit-rails'
+end

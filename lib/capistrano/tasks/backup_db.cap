@@ -1,0 +1,14 @@
+namespace :deploy do
+  task :backup_db do
+    on roles(:db) do |h|
+      execute :mkdir, '-pv', File.join(shared_path, 'db_backups')
+      if test("[ -f #{File.join(shared_path, 'db', 'production.sqlite3')} ]")
+        execute :cp, File.join(shared_path, 'db', 'production.sqlite3'),
+                     File.join(shared_path, 'db_backups', "production-#{Time.now.strftime("%Y%m%d%H%M")}.sqlite3")
+      else
+        warn "There's no production DB on  #{host}!"
+      end
+    end
+  end
+end
+

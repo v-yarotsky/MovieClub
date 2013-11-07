@@ -1,0 +1,8 @@
+namespace :deploy do
+  task :restart do
+    on roles(:app) do |h|
+      execute "sudo /etc/init.d/unicorn_movie_club restart"
+    end
+  end
+end
+
