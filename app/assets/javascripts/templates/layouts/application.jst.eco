@@ -1,13 +1,12 @@
-<div class="container">
+<div class="container js-container">
   <div class="header">
-    <!-- Navigation
-    <ul class="nav nav-pills pull-right">
+    <ul class="nav nav-pills pull-right js-nav">
+      <li class="js-logout"></li>
     </ul>
-    -->
     <h1 class="text-muted">Movie Club</h1>
   </div>
 
-  <div id="content">
+  <div id="content" class="js-content">
   </div>
 </div>
 

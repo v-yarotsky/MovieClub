@@ -2,7 +2,8 @@
   <script type="text/javascript">
     $(function() {
       var bootstrap = {
-        proposedEvents: <%= raw @events.to_json %>
+        proposedEvents: <%= raw @events.to_json %>,
+        session: <%= raw current_user.to_json(only: :email) %>
       };
       MovieClub.setElement(document.body);
       MovieClub.render();

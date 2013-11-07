@@ -16,9 +16,12 @@
 #= require js-routes
 #= require_tree ./templates
 #= require_self
+#= require ./utils/base_view
+#= require ./utils/composite_view
+#= require_tree ./views
+#= require_tree ./routers
 #= require_tree ./models
 #= require_tree ./collections
-#= require_tree ./views
 #= require_tree .
 
 Backbone.$ = $
@@ -31,29 +34,21 @@ window.MovieClub = new (Backbone.View.extend
 
   template: JST["templates/layouts/application"]
 
+  initialize: ->
+    @renderLoggingEnabled = false
+    @sessionLoggingEnabled = false
+
   render: ->
     @$el.html(@template())
     @
 
   start: (bootstrap) ->
     @bootstrap = bootstrap
-    @router = new MovieClub.Routers.Events()
+    @session().reset(bootstrap.session)
+    @router = new @Routers.Main()
     Backbone.history.start()
+
+  session: ->
+    @appSession ?= new MovieClub.Models.Session()
 )()
-
-class MovieClub.Routers.Events extends Backbone.Router
-  routes:
-    "": "index"
-    "events/:id": "show"
-
-  index: ->
-    @renderLayout()
-
-  show: (eventId) ->
-    @renderLayout().showEvent(eventId)
-
-  renderLayout: _.once(->
-    @eventsLayout = new MovieClub.Views.EventsLayout(el: $("#content"), bootstrap: MovieClub.bootstrap)
-    @eventsLayout.render()
-  )
 

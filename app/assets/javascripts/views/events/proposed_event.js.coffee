@@ -1,4 +1,4 @@
-class MovieClub.Views.ProposedEvent extends Backbone.View
+class MovieClub.Views.ProposedEvent extends MovieClub.BaseView
   tagName: "tr"
   className: "event-proposed"
   template: JST["templates/events/proposed_event"]
@@ -7,12 +7,15 @@ class MovieClub.Views.ProposedEvent extends Backbone.View
     "click .js-proposed-event-vote": "voteEventHandler"
 
   initialize: () ->
+    @log("create proposed event")
     @listenTo(@model, "change", @render, @)
 
   render: () ->
+    @log("render proposed event")
     @$el.html(@template(@model.attributes))
     @
 
   voteEventHandler: (e) =>
+    @log("proposed event voteEventHandler")
     e.preventDefault()
     @model.increaseInterested()

@@ -2,6 +2,7 @@ require 'acceptance_spec_helper'
 
 feature "Propose an event" do
   scenario "Propose an event using form" do
+    login_as test_user
     visit "/"
     click_on "Propose an event!"
 
