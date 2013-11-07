@@ -20,6 +20,7 @@ end
 
 group :development do
   gem 'pry'
+  gem 'qunit-rails'
 end
 
 group :test do
@@ -27,5 +28,6 @@ group :test do
   gem 'capybara',         '~> 2.1'
   gem 'poltergeist',      '~> 1.4'
   gem 'database_cleaner', '~> 1.2'
+  gem 'qunit-rails'
 end
 
