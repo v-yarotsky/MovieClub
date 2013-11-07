@@ -43,3 +43,5 @@ namespace :test do
   end
 
 end
+
+task :default => [:features]

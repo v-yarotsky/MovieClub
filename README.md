@@ -1,6 +1,9 @@
 Movie Club
 ==========
 
+[![Build Status](https://secure.travis-ci.org/v-yarotsky/MovieClub.png)](http://travis-ci.org/v-yarotsky/MovieClub)
+[![Code Climate](https://codeclimate.com/github/v-yarotsky/MovieClub.png)](https://codeclimate.com/github/v-yarotsky/MovieClub)
+
 Features:
   * User:
     - Login
