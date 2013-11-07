@@ -24,7 +24,7 @@
         <div class="form-group">
           <div class="controls col-lg-10 col-lg-offset-2">
             <button class="btn btn-default">Login</button>
-            <a href="<%= Routes.new_api_password_path %>">Forgot password?</a>
+            <a class="js-password-reset-new" href="<%= Routes.new_api_password_path %>">Forgot password?</a>
           </div>
         </div>
       </div>

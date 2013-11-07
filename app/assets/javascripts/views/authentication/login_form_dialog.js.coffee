@@ -4,6 +4,7 @@ class MovieClub.Views.LoginFormDialog extends MovieClub.BaseView
 
   events:
     'submit': 'login'
+    'click .js-password-reset-new': 'passwordResetHandler'
 
   initialize: ->
     @log("create login form")
@@ -16,6 +17,14 @@ class MovieClub.Views.LoginFormDialog extends MovieClub.BaseView
     @listenToOnce(MovieClub, "login", @dismiss)
     @listenTo(MovieClub, "login:failure", @_showLoginErrors)
     @
+
+  renderPasswordReset: ->
+    alert("What have you done!")
+    @
+
+  passwordResetHandler: (e) ->
+    e.preventDefault()
+    @renderPasswordReset()
 
   dismiss: ->
     @log("dismiss login form")
