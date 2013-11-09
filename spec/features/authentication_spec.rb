@@ -5,8 +5,8 @@ feature "Authentication" do
     visit "/"
     expect(page).to have_no_content_within("#content")
     within ".authentication-login-form-dialog" do
-      fill_in "user[email]", with: test_user.email
-      fill_in "user[password]", with: test_user.password
+      fill_in "email", with: test_user.email
+      fill_in "password", with: test_user.password
     end
     click_on "Login"
 
@@ -29,8 +29,8 @@ feature "Authentication" do
 
     visit "/#events/1"
     within ".authentication-login-form-dialog" do
-      fill_in "user[email]", with: test_user.email
-      fill_in "user[password]", with: test_user.password
+      fill_in "email", with: test_user.email
+      fill_in "password", with: test_user.password
     end
     click_on "Login"
     expect(page).to have_text("Here goes the description")

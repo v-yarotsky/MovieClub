@@ -43,10 +43,9 @@ class MovieClub.Models.Session
     @email? && @email != ""
 
   toJSON: ->
-    user:
-      remember_me: false,
-      email: @email
-      password: @password
+    remember_me: false,
+    email: @email
+    password: @password
 
   log: (msg) ->
     if MovieClub.sessionLoggingEnabled

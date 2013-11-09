@@ -1,18 +1,15 @@
 module Api
 
-  class SessionsController < DeviseController
-    prepend_before_filter :require_no_authentication, only: :create
-    prepend_before_filter :allow_params_authentication!, only: :create
-    prepend_before_filter { request.env["devise.skip_timeout"] = true }
+  class SessionsController < BaseApiController
+    skip_before_filter :authenticate_user!, only: :create
 
     def create
-      user = warden.authenticate!
-      sign_in(user)
+      warden.authenticate!
       render json: { success: true, authenticity_token: form_authenticity_token }
     end
 
     def destroy
-      sign_out
+      warden.logout
       render json: { success: true, authenticity_token: form_authenticity_token }
     end
   end

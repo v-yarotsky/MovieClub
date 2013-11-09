@@ -36,8 +36,8 @@ class MovieClub.Views.LoginFormDialog extends MovieClub.BaseView
     @log("submit login form")
     e.preventDefault()
     MovieClub.session().create
-      email:    @$("input[name='user[email]']").val()
-      password: @$("input[name='user[password]']").val()
+      email:    @$("input[name='email']").val()
+      password: @$("input[name='password']").val()
 
   _showLoginErrors: (errorMessage) ->
     @$(".js-alerts").html("<div class='alert alert-danger'><a class='close' data-dismiss='alert' href='#'>×</a>#{errorMessage}</div>")
