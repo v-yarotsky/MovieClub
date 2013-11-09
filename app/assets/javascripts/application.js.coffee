@@ -14,6 +14,8 @@
 #= require jquery_ujs
 #= require bootstrap
 #= require js-routes
+#= require underscore
+#= require backbone
 #= require_tree ./templates
 #= require_self
 #= require ./utils/base_view

@@ -1,3 +1,7 @@
 class User < ActiveRecord::Base
-  devise :invitable, :database_authenticatable, :token_authenticatable, :recoverable, :rememberable, :validatable
+  has_secure_password validations: false
+
+  validates :password, presence: true, length: { within: 8..128 }, on: :create
+  validates :email, presence: true, on: :create
 end
+

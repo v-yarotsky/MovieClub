@@ -1,8 +1,6 @@
 MovieClub::Application.routes.draw do
   namespace :api do
-    devise_scope :user do
-      resource :session, only: [:create, :destroy]
-    end
+    resource :session, only: [:create, :destroy]
 
     resources :events do
       member do
@@ -13,8 +11,6 @@ MovieClub::Application.routes.draw do
       end
     end
   end
-
-  Devise.add_mapping(:user, {})
 
   resources :events, only: :index
 

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.1'
 
 gem 'sqlite3', '~> 1.3'
 gem 'coffee-rails', '~> 4.0.0'
@@ -9,9 +9,10 @@ gem 'jquery-rails', '~> 3.0'
 gem 'jbuilder', '~> 1.2'
 gem 'therubyracer', '~> 0.12'
 gem 'js-routes', '~> 0.9'
+gem 'backbone-rails', '~> 1.0'
 gem 'eco', '~> 1.0'
-gem 'devise', '~> 3.1.1'
-gem 'devise_invitable', '~> 1.3.0'
+gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'warden', '~> 1.2.3'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
