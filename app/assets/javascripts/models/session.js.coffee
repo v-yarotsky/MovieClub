@@ -17,7 +17,7 @@ class MovieClub.Models.Session
         MovieClub.trigger("login", authenticityToken: response.authenticity_token)
       error: (response) =>
         @log("login failure", response)
-        MovieClub.trigger("login:failure", response.responseText)
+        MovieClub.trigger("login:failure", response.responseJSON)
       complete: =>
         @reset(email: sessionAttributes.email)
 
