@@ -29,12 +29,25 @@ namespace :spec do
 
   desc 'Run QUnit javascript tests'
   task javascripts: :environment do
+    require 'net/http'
+    Thread.abort_on_exception = true
+
     Thread.new do
       server = TestServer.new
       server.start
     end
 
     qunit_url = "http://localhost:#{TEST_SERVER_PORT}/qunit"
+    slept_times = 0
+
+    begin
+       Net::HTTP.get(URI(qunit_url))
+    rescue Errno::ECONNREFUSED
+      sleep 0.1
+      slept_times += 1
+      retry unless slept_times > 50
+    end
+
     qunit_runner_path = Rails.root.join('spec', 'run-qunit.js')
     puts %x(phantomjs #{qunit_runner_path} #{qunit_url})
   end
