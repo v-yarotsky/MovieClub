@@ -35,5 +35,17 @@ feature "Authentication" do
     click_on "Login"
     expect(page).to have_text("Here goes the description")
   end
+
+  scenario "Authentication failure" do
+    visit "/"
+    expect(page).to have_no_content_within("#content")
+    within ".authentication-login-form-dialog" do
+      fill_in "email", with: "lol"
+      fill_in "password", with: "ololo"
+    end
+    click_on "Login"
+
+    expect(page).to have_text("Incorrect email or password")
+  end
 end
 
