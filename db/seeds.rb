@@ -7,11 +7,13 @@ Event.create!(
 
 User.create!(
   email: "v.yarotsky@itransition.com",
-  password: "123456"
+  password: "123456",
+  admin: true
 )
 
 User.create!(
   email: "ermak130990@rambler.ru",
-  password: "123456"
+  password: "123456",
+  admin: true
 )
 

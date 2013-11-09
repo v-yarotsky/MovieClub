@@ -1,0 +1,13 @@
+<%= content_for :javascripts do %>
+  <script type="text/javascript">
+    $(function() {
+      var bootstrap = {
+        session: <%= raw current_user.to_json(only: :email) %>
+      };
+      MovieClub.start(bootstrap, function() {
+        return new MovieClub.Routers.Admin();
+      });
+    });
+  </script>
+<% end %>
+

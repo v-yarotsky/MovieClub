@@ -6,9 +6,9 @@
         session: <%= raw current_user.to_json(only: :email) %>,
         upcomingEvent: <%= raw @upcoming_event.to_json %>
       };
-      MovieClub.setElement(document.body);
-      MovieClub.render();
-      MovieClub.start(bootstrap);
+      MovieClub.start(bootstrap, function() {
+        return new MovieClub.Routers.Main();
+      });
     });
   </script>
 <% end %>
