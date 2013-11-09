@@ -1,6 +1,6 @@
 Rails.application.config.middleware.insert_after ActionDispatch::Flash, Warden::Manager do |manager|
   manager.default_strategies :password
-  manager.failure_app = -> (env) { [401, { "Content-Type" => "application/json" }, [{ success: false, message: env["warden"].message }.to_json]] }
+  manager.failure_app = ->(env) { [401, { "Content-Type" => "application/json" }, [{ success: false, message: env["warden"].message }.to_json]] }
 end
 
 Warden::Manager.serialize_into_session do |user|
