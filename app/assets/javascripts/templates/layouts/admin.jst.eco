@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      <ul class="js-admin-navigation nav nav-tabs">
+        <li data-tab="events"><a href="#events">Events</a></li>
+        <li data-tab="invitations"><a href="#invitations">Invitations</a></li>
+      </ul>
+    </div>
+    <div class="js-admin-tabs span10">
+      <section class="tab" data-tab="events">
+      </section>
+
+      <section class="tab" data-tab="invitations">
+      </section>
+    </div>
+  </div>
+</div>
+

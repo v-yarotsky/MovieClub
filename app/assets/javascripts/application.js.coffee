@@ -21,6 +21,7 @@
 #= require ./utils/base_view
 #= require ./utils/composite_view
 #= require_tree ./views
+#= require ./routers/base
 #= require_tree ./routers
 #= require_tree ./models
 #= require_tree ./collections
@@ -44,10 +45,12 @@ window.MovieClub = new (Backbone.View.extend
     @$el.html(@template())
     @
 
-  start: (bootstrap) ->
+  start: (bootstrap, routerConstructor) ->
     @bootstrap = bootstrap
     @session().reset(bootstrap.session)
-    @router = new @Routers.Main()
+    @setElement(document.body)
+    @render()
+    @router = routerConstructor()
     Backbone.history.start()
 
   session: ->
