@@ -3,8 +3,8 @@ class MovieClub.Views.AdminLayout extends MovieClub.CompositeView
 
   initialize: (options) ->
     @log("create admin layout")
-    @eventsView = new MovieClub.Views.AdminEventsView()
-    @invitationsView = new MovieClub.Views.AdminInvitationsView()
+    @eventsView = new MovieClub.Views.AdminEvents(bootstrap: options.bootstrap)
+    @invitationsView = new MovieClub.Views.AdminInvitations(bootstrap: options.bootstrap)
     @registerSubview(@eventsView)
     @registerSubview(@invitationsView)
 
@@ -13,8 +13,8 @@ class MovieClub.Views.AdminLayout extends MovieClub.CompositeView
     @$el.html(@template())
     @$nav = @$(".js-admin-navigation")
     @$tabs = @$(".js-admin-tabs")
-    @renderSubview(@eventsView, ".tab[data-tab='events']")
-    @renderSubview(@invitationsView, ".tab[data-tab='invitations']")
+    @renderSubview(@eventsView, ".tab-pane[data-tab='events']")
+    @renderSubview(@invitationsView, ".tab-pane[data-tab='invitations']")
     @
 
   renderEvents: ->
@@ -34,8 +34,8 @@ class MovieClub.Views.AdminLayout extends MovieClub.CompositeView
 
   _setNavItem: (item) ->
     @$nav.find("li").removeClass("active")
-    @$tabs.find(".tab").hide()
+    @$tabs.find(".tab-pane").hide()
     @$nav.find("li[data-tab='#{item}']").addClass("active")
-    @$tabs.find(".tab[data-tab='#{item}']").show()
+    @$tabs.find(".tab-pane[data-tab='#{item}']").show()
     @$
 

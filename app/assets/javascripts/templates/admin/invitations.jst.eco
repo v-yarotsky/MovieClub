@@ -1,2 +1,30 @@
-Invite some people here
+<div class="admin-invitations-grid">
+  <div class="js-admin-invitations-grid-filters">
+  </div>
+  <div class="js-admin-invitations-grid">
+  </div>
+</div>
 
+<form class="form-horizontal">
+  <div class="js-alerts">
+  </div>
+  <div class="form-group">
+    <label for="invitation_text" class="control-label col-lg-2">Invitation text</label>
+    <div class="controls col-lg-10">
+      <textarea id="invitationText", name="invitation[text]" class="form-control" rows="5"></textarea>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="invitees" class="control-label col-lg-2">Invitees</label>
+    <div class="controls col-lg-10">
+      <textarea id="invitees", name="invitation[invitees]" class="form-control" rows="5"></textarea>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="controls col-lg-10 col-lg-offset-2">
+      <button class="btn btn-default">Send invites</button>
+    </div>
+  </div>
+</form>

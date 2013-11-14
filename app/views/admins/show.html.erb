@@ -2,7 +2,33 @@
   <script type="text/javascript">
     $(function() {
       var bootstrap = {
-        session: <%= raw current_user.to_json(only: :email) %>
+        session: <%= raw current_user.to_json(only: :email) %>,
+        invitations: [
+          {
+            id: 1,
+            email: "v.yarotsky@itransition.com",
+            invitation_sent_at: "2013-11-09 08:00:00",
+            invitation_accepted_at: "2013-11-10 04:00:00",
+          },
+          {
+            id: 2,
+            email: "m.ermalovich@wargaming.com",
+            invitation_sent_at: "2013-11-09 08:00:00",
+            invitation_accepted_at: null,
+          },
+          {
+            id: 3,
+            email: "a.bykova@itransition.com",
+            invitation_sent_at: "2013-11-09 08:00:00",
+            invitation_accepted_at: null,
+          },
+          {
+            id: 4,
+            email: "z.urbanovich@itransition.com",
+            invitation_sent_at: null,
+            invitation_accepted_at: null,
+          }
+        ]
       };
       MovieClub.start(bootstrap, function() {
         return new MovieClub.Routers.Admin();

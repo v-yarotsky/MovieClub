@@ -1,4 +1,4 @@
-class MovieClub.Views.AdminEventsView extends MovieClub.CompositeView
+class MovieClub.Views.AdminEvents extends MovieClub.CompositeView
   template: JST["templates/admin/events"]
 
   initialize: (options) ->
