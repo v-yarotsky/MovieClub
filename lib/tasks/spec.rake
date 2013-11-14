@@ -29,27 +29,40 @@ namespace :spec do
 
   desc 'Run QUnit javascript tests'
   task javascripts: :environment do
-    require 'net/http'
-    Thread.abort_on_exception = true
-
-    Thread.new do
-      server = TestServer.new
-      server.start
-    end
-
-    qunit_url = "http://localhost:#{TEST_SERVER_PORT}/qunit"
-    slept_times = 0
-
     begin
-       Net::HTTP.get(URI(qunit_url))
-    rescue Errno::ECONNREFUSED
-      sleep 0.1
-      slept_times += 1
-      retry unless slept_times > 50
+      require 'net/http'
+      require 'stringio'
+
+      # Deadling with undesired output of Rails
+      old_stdout, old_stderr = $stdout, $stderr
+      $stdout = $stderr = StringIO.new
+
+      Thread.abort_on_exception = true
+      server_thread = Thread.new do
+        server = TestServer.new
+        server.start
+      end
+
+      slept_times = 0
+      begin
+        Net::HTTP.start("localhost", TEST_SERVER_PORT) { |http| http.head2('/qunit') }
+      rescue Errno::ECONNREFUSED
+        sleep 0.1
+        slept_times += 1
+        slept_times <= 50 ? retry : raise
+      end
+
+      qunit_runner_path = Rails.root.join('spec', 'run-qunit.js')
+      qunit_url = "http://localhost:#{TEST_SERVER_PORT}/qunit"
+      old_stdout.puts %x(phantomjs #{qunit_runner_path} #{qunit_url})
+
+      server_thread.kill
+    ensure
+      $stdout = old_stdout
+      $stderr = old_stderr
     end
-
-    qunit_runner_path = Rails.root.join('spec', 'run-qunit.js')
-    puts %x(phantomjs #{qunit_runner_path} #{qunit_url})
   end
-
 end
+
+task spec: ["spec:javascripts", "spec:features"]
+

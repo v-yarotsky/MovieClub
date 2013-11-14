@@ -5,4 +5,4 @@ require File.expand_path('../config/application', __FILE__)
 
 MovieClub::Application.load_tasks
 
-task default: ['spec:javascripts', 'spec:features']
+task default: :spec
