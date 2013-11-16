@@ -1,4 +1,4 @@
-class MovieClub.Models.AdminInvitation extends Backbone.Model
+class MovieClub.Models.AdminEventAttendee extends Backbone.Model
   defaults:
     id: null
     email: null

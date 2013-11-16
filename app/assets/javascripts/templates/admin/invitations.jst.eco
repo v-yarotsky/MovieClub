@@ -1,10 +1,3 @@
-<div class="admin-invitations-grid">
-  <div class="js-admin-invitations-grid-filters">
-  </div>
-  <div class="js-admin-invitations-grid">
-  </div>
-</div>
-
 <form class="form-horizontal">
   <div class="js-alerts">
   </div>

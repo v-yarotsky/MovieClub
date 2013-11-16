@@ -1,3 +1,0 @@
-<td><input type="checkbox" class="js-admin-invitations-grid-item-select"/></td>
-<td><%= @email %></td>
-

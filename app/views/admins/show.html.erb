@@ -3,7 +3,7 @@
     $(function() {
       var bootstrap = {
         session: <%= raw current_user.to_json(only: :email) %>,
-        invitations: [
+        event_attendees: [
           {
             id: 1,
             email: "v.yarotsky@itransition.com",

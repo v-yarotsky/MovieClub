@@ -1,0 +1,6 @@
+<div class="btn-group">
+  <a href="#" class="js-admin-event-attendees-filter btn btn-default" data-filter="not_invited">Not invited</a>
+  <a href="#" class="js-admin-event-attendees-filter btn btn-default" data-filter="pending">Pending</a>
+  <a href="#" class="js-admin-event-attendees-filter btn btn-default" data-filter="accepted">Accepted</a>
+</div>
+

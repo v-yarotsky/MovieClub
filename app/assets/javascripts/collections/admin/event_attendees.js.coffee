@@ -1,5 +1,5 @@
-class MovieClub.Collections.AdminInvitations extends Backbone.Collection
-  model: MovieClub.Models.AdminInvitation
+class MovieClub.Collections.AdminEventAttendees extends Backbone.Collection
+  model: MovieClub.Models.AdminEventAttendee
   filters:
     not_invited: true
     pending: true

@@ -1,1 +1,10 @@
-Let's choose an event here
+<div class="js-admin-events-schedule-event-form">
+</div>
+<div class="admin-event-attendees-grid">
+  <div class="js-admin-event-attendees-grid-filters">
+  </div>
+  <div class="js-admin-event-attendees-grid">
+  </div>
+</div>
+
+

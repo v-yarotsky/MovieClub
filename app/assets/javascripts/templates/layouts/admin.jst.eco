@@ -4,12 +4,12 @@
       <li data-tab="events"><a href="#events">Events</a></li>
       <li data-tab="invitations"><a href="#invitations">Invitations</a></li>
     </ul>
-    <div class="js-admin-tabs tab-content">
-      <div class="tab-pane" data-tab="events">
-      </div>
+  </div>
+  <div class="js-admin-tabs tab-content row-fluid">
+    <div class="tab-pane" data-tab="events">
+    </div>
 
-      <div class="tab-pane" data-tab="invitations">
-      </div>
+    <div class="tab-pane" data-tab="invitations">
     </div>
   </div>
 </div>

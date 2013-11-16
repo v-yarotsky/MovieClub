@@ -1,6 +1,6 @@
 <table class="table table-condensed">
   <thead>
-    <th><input type="checkbox" class="js-admin-invitations-grid-select-all"/></th>
+    <th><input type="checkbox" class="js-admin-event-attendees-grid-select-all"/></th>
     <th>Invitee</th>
   </thead>
   <tbody>
