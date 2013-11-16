@@ -11,4 +11,4 @@ namespace :spec do
   end
 end
 
-task spec: ["spec:features"]
+task spec: ["spec:features", "spec:javascript"]

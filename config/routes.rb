@@ -24,5 +24,7 @@ MovieClub::Application.routes.draw do
   resources :events, only: :index
 
   root "events#index"
+
+  mount JasmineRails::Engine => "/specs" if defined?(JasmineRails)
 end
 
