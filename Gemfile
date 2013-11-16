@@ -33,7 +33,3 @@ group :test do
   gem 'poltergeist', '~> 1.4'
   gem 'database_cleaner', '~> 1.2'
 end
-
-group :development, :test do
-  gem 'qunit-rails'
-end
