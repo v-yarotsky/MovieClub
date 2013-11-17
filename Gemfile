@@ -35,5 +35,5 @@ group :test do
 end
 
 group :development, :test do
-  gem 'qunit-rails'
+  gem 'jasmine-rails'
 end
