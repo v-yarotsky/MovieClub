@@ -13,6 +13,7 @@ gem 'backbone-rails', '~> 1.0'
 gem 'eco', '~> 1.0'
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'warden', '~> 1.2.3'
+gem 'newrelic_rpm'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
