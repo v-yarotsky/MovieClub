@@ -1,21 +1,22 @@
-class MovieClub.Views.ProposedEvent extends MovieClub.BaseView
-  tagName: "tr"
-  className: "event-proposed"
-  template: JST["templates/events/proposed_event"]
+MovieClub.module "Views", (Views, MovieClub) ->
+  class @ProposedEvent extends @BaseView
+    tagName: "tr"
+    className: "event-proposed"
+    template: JST["templates/events/proposed_event"]
 
-  events:
-    "click .js-proposed-event-vote": "voteEventHandler"
+    events:
+      "click .js-proposed-event-vote": "voteEventHandler"
 
-  initialize: () ->
-    @log("create proposed event")
-    @listenTo(@model, "change", @render, @)
+    initialize: () ->
+      @log("create proposed event")
+      @listenTo(@model, "change", @render, @)
 
-  render: () ->
-    @log("render proposed event")
-    @$el.html(@template(@model.attributes))
-    @
+    render: () ->
+      @log("render proposed event")
+      @$el.html(@template(@model.attributes))
+      @
 
-  voteEventHandler: (e) =>
-    @log("proposed event voteEventHandler")
-    e.preventDefault()
-    @model.increaseInterested()
+    voteEventHandler: (e) =>
+      @log("proposed event voteEventHandler")
+      e.preventDefault()
+      @model.increaseInterested()

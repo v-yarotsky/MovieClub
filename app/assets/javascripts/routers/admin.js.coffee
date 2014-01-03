@@ -1,21 +1,21 @@
-class MovieClub.Routers.Admin extends MovieClub.Routers.Base
-  routes:
-    "(events)": "events",
-    "invitations": "invitations"
+MovieClub.module "Routers", (Routers, MovieClub) ->
+  class @Admin extends @Base
+    routes:
+      "(events)": "events",
+      "invitations": "invitations"
 
+    events: ->
+      @ensureAuthenticated =>
+        @renderLayout().renderEvents()
 
-  events: ->
-    @ensureAuthenticated =>
-      @renderLayout().renderEvents()
+    invitations: ->
+      @ensureAuthenticated =>
+        @renderLayout().renderInvitations()
 
-  invitations: ->
-    @ensureAuthenticated =>
-      @renderLayout().renderInvitations()
+    renderLayout: ->
+      @adminLayout ?= new MovieClub.Views.AdminLayout(el: $(".js-content"), bootstrap: MovieClub.bootstrap)
+      @adminLayout.render()
 
-  renderLayout: ->
-    @adminLayout ?= new MovieClub.Views.AdminLayout(el: $(".js-content"), bootstrap: MovieClub.bootstrap)
-    @adminLayout.render()
-
-  leaveCurrentLayout: ->
-    @adminLayout?.leave()
+    leaveCurrentLayout: ->
+      @adminLayout?.leave()
 

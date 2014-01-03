@@ -1,5 +1,6 @@
-class MovieClub.Models.Event extends Backbone.Model
-  urlRoot: Routes.api_events_path
+MovieClub.module "Models", (Models, MovieClub) ->
+  class @Event extends @BaseModel
+    urlRoot: MovieClub.routes.api_events_path
 
-  increaseInterested: ->
-    @save(rate: @get("rate") + 1)
+    increaseInterested: ->
+      @save(rate: @get("rate") + 1)

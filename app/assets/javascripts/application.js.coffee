@@ -18,22 +18,17 @@
 #= require backbone
 #= require_tree ./templates
 #= require_self
-#= require ./utils/base_view
-#= require ./utils/composite_view
+#= require ./framework
 #= require_tree ./views
-#= require ./routers/base
-#= require_tree ./routers
+#= require_tree ./presenters
+#= require ./routers
 #= require_tree ./models
 #= require_tree ./collections
-#= require_tree .
 
 Backbone.$ = $
 
 window.MovieClub = new (Backbone.View.extend
-  Models: {}
-  Collections: {}
-  Views: {}
-  Routers: {}
+  routes: Routes
 
   template: JST["templates/layouts/application"]
 
